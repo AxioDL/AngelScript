@@ -1,3 +1,7 @@
+!contains(CONFIG, thread):CONFIG += thread
+
+INCLUDEPATH += $$PWD/angelscript/include
+
 HEADERS += $$PWD/angelscript/include/angelscript.h \
            $$PWD/angelscript/source/as_array.h \
            $$PWD/angelscript/source/as_atomic.h \
