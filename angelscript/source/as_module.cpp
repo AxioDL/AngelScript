@@ -1011,6 +1011,21 @@ void *asCModule::GetAddressOfGlobalVar(asUINT index)
 }
 
 // interface
+const void *asCModule::GetAddressOfGlobalVar(asUINT index) const
+{
+    const asCGlobalProperty *prop = scriptGlobals.Get(index);
+    if( !prop )
+        return 0;
+
+    // For object variables it's necessary to dereference the pointer to get the address of the value
+    if( prop->type.IsObject() &&
+        !prop->type.IsObjectHandle() )
+        return *(void**)(prop->GetAddressOfValue());
+
+    return (void*)(prop->GetAddressOfValue());
+}
+
+// interface
 const char *asCModule::GetGlobalVarDeclaration(asUINT index, bool includeNamespace) const
 {
 	const asCGlobalProperty *prop = scriptGlobals.Get(index);

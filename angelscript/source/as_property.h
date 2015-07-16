@@ -75,6 +75,7 @@ public:
 	void DestroyInternal();
 
 	void *GetAddressOfValue();
+    const void *GetAddressOfValue() const;
 	void  AllocateMemory();
 	void  SetRegisteredAddress(void *p);
 	void *GetRegisteredAddress() const;

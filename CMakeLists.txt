@@ -117,12 +117,12 @@ if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64" AND NOT APPLE)
     add_definitions(-fPIC)
 endif()
 
-add_library(angelscript ${ANGELSCRIPT_SOURCE} ${ANGELSCRIPT_HEADERS})
-target_link_libraries(angelscript ${CMAKE_THREAD_LIBS_INIT})
+add_library(AngelScript ${ANGELSCRIPT_SOURCE} ${ANGELSCRIPT_HEADERS})
+target_link_libraries(AngelScript ${CMAKE_THREAD_LIBS_INIT})
 
-set_target_properties(angelscript PROPERTIES VERSION ${ANGELSCRIPT_VERSION})
+set_target_properties(AngelScript PROPERTIES VERSION ${ANGELSCRIPT_VERSION})
 
 if(MSVC)
-    set_target_properties(angelscript PROPERTIES COMPILE_FLAGS "/MP")
+    set_target_properties(AngelScript PROPERTIES COMPILE_FLAGS "/MP")
 endif()
 

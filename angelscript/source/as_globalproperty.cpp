@@ -85,6 +85,11 @@ void *asCGlobalProperty::GetAddressOfValue()
 	return memory;
 }
 
+const void *asCGlobalProperty::GetAddressOfValue() const
+{
+    return memory;
+}
+
 // The global property structure is responsible for allocating the storage
 // method for script declared variables. Each allocation is independent of
 // other global properties, so that variables can be added and removed at
